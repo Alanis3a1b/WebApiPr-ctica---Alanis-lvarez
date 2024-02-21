@@ -1,0 +1,6 @@
+@WebApiPráctica___Alanis_Álvarez_HostAddress = http://localhost:5220
+
+GET {{WebApiPráctica___Alanis_Álvarez_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -33,6 +33,8 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
             return Ok(listadoEquipo);
         }
 
+        //Prueba enviado a repositorio 
+
     }
 
 

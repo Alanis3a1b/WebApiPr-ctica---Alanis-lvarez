@@ -10,5 +10,6 @@ namespace WebApiPráctica___Alanis_Álvarez.Models
         }
 
         public DbSet<equipos> equipos { get; set; }
+        /*tabla*/
     }
 }

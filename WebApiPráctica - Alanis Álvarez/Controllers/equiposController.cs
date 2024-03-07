@@ -55,7 +55,7 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
 
         //Buscar por descripción
         [HttpGet]
-        [Route("Find/{filtro}")]
+        [Route("Find/{descripcion}")]
 
         public IActionResult Get(string filtro) 
         {
@@ -90,7 +90,7 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
 
         //Método para modificar los registros de la tabla
         [HttpPut]
-        [Route("actualizar/{id}")]
+        [Route("Actualizar/{id}")]
 
         public IActionResult ActualizarEquipo(int id, [FromBody] equipos equipoModificar)
         {
@@ -113,7 +113,26 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
 
             return Ok(equipoModificar);
 
-            //Ejemplo commit
+            
+
+        }
+
+        [HttpPut]
+        [Route("Eliminar/{id}")]
+        public IActionResult EliminarEquipo(int id)
+        {
+            equipos? equipo = (from e in _equiposContexto.equipos
+                               where e.id_equipos == id
+                               select e).FirstOrDefault();
+
+            if (equipo == null)
+            { return NotFound(); }
+
+            _equiposContexto.equipos.Attach(equipo);
+            _equiposContexto.equipos.Remove(equipo);
+            _equiposContexto.SaveChanges();
+
+            return Ok(equipo);
 
         }
 

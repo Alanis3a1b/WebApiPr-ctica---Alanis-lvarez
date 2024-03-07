@@ -21,8 +21,6 @@ namespace WebApiPráctica___Alanis_Álvarez.Models
 
     }
 
-    //Comentario en equipos para practicar
-
 
 
 }

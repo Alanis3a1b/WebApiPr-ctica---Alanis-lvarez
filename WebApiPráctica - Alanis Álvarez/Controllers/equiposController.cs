@@ -42,26 +42,25 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
         public IActionResult Get()
         {
             var listadoEquipo = (from e in _equiposContexto.equipos
-                                 join t in _equiposContexto.tipo_equipo
-                                        on e.id_tipo_equipo equals t.id_tipo_equipo
-                                 join m in _equiposContexto.marcas
-                                        on e.id_marca equals m.id_marcas
-                                 join es in _equiposContexto.estados_equipo
-                                        on e.id_estados_equipo equals es.id_estados_equipo
-
-                                 select new
-                                 {
-                                     e.id_equipos,
-                                     e.nombre,
-                                     e.descripcion,
-                                     e.id_tipo_equipo,
-                                     tipo_equipo = t.descripcion,
-                                     e.id_marca,
-                                     marca = m.nombre_marca,
-                                     e.id_estados_equipo,
-                                     estados_equipos = es.id_estados_equipo,
-                                     e.estado
-                                 }).ToList();
+                                           join t in _equiposContexto.tipo_equipo
+                                                  on e.id_tipo_equipo equals t.id_tipo_equipo
+                                           join m in _equiposContexto.marcas
+                                                  on e.id_marca equals m.id_marcas
+                                           join es in _equiposContexto.estados_equipos
+                                                  on e.id_estados_equipo equals es.id_estados_equipos
+                                         select new
+                                         {
+                                             e.id_equipos,
+                                             e.nombre,
+                                             e.descripcion,
+                                             e.id_tipo_equipo,
+                                             tipo_equipo = t.descripcion,
+                                             e.id_marca,
+                                             marca = m.nombre_marca,
+                                             e.id_estados_equipo,
+                                             estados_equipos = es.id_estados_equipos,
+                                             e.estado
+                                         }).ToList();
 
             if (listadoEquipo.Count == 0)
             {
@@ -142,7 +141,7 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
             equipoActual.nombre = equipoModificar.nombre;
             equipoActual.descripcion = equipoModificar.descripcion;
             equipoActual.id_marca = equipoModificar.id_marca;
-            equipoModificar.id_marca = equipoModificar.id_marca;
+            equipoModificar.id_tipo_equipo= equipoModificar.id_tipo_equipo;
             equipoModificar.anio_compra = equipoModificar.anio_compra;
             equipoModificar.costo = equipoModificar.costo;
 

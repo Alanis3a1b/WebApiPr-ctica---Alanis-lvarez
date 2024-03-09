@@ -18,5 +18,7 @@ namespace WebApiPráctica___Alanis_Álvarez.Models
 
         public DbSet<estados_equipo> estados_equipo { get; set; }
 
+        /*Comentario*/
+
     }
 }

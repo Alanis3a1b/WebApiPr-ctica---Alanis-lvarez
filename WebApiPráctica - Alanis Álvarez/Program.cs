@@ -18,6 +18,16 @@ builder.Services.AddDbContext<marcasContext>(options =>
              builder.Configuration.GetConnectionString("equiposDbConnection")
              ));
 
+builder.Services.AddDbContext<estados_equipoContext>(options =>
+         options.UseSqlServer(
+             builder.Configuration.GetConnectionString("equiposDbConnection")
+             ));
+
+builder.Services.AddDbContext<tipo_equipoContext>(options =>
+         options.UseSqlServer(
+             builder.Configuration.GetConnectionString("equiposDbConnection")
+             ));
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

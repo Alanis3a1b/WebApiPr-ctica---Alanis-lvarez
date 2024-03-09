@@ -17,33 +17,50 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
             _equiposContexto = equiposContexto;
         }
 
-        //Método para leer todos los registros
-        [HttpGet]
-        [Route("GetAll")]
+        ////Método para leer todos los registros
+        //[HttpGet]
+        //[Route("GetAll")]
 
-        public IActionResult Get()
-        {
-            List<equipos> listadoEquipo = (from e in _equiposContexto.equipos
-                                           select e).ToList();
+        //public IActionResult Get()
+        //{
+        //    List<equipos> listadoEquipo = (from e in _equiposContexto.equipos
+        //                                   select e).ToList();
 
-            if (listadoEquipo.Count == 0)
-            {
-                return NotFound();
-            }
+        //    if (listadoEquipo.Count == 0)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(listadoEquipo);
-        }
+        //    return Ok(listadoEquipo);
+        //}
 
         //Método con los joins (Obviamente realizar sus parámetros, contexto, inyección de cada tabla y
         //controlador (si nos piden crearle métodos a dicha tabla)
         [HttpGet]
         [Route("GetAll")]
 
-        public IActionResult GetJoin()
+        public IActionResult Get()
         {
-            List<equipos> listadoEquipo = (from e in _equiposContexto.equipos
-                                           
-                                           select e).ToList();
+            var listadoEquipo = (from e in _equiposContexto.equipos
+                                           join t in _equiposContexto.tipo_equipo
+                                                  on e.id_tipo_equipo equals t.id_tipo_equipo
+                                           join m in _equiposContexto.marcas
+                                                  on e.id_marca equals m.id_marca
+                                           join es in _equiposContexto.estados_equipo
+                                                  on e.id_estados_equipo equals es.id_estados_equipo
+                                         select new
+                                         {
+                                             e.id_equipos,
+                                             e.nombre,
+                                             e.descripcion,
+                                             e.id_tipo_equipo,
+                                             tipo_equipo = t.descripcion,
+                                             e.id_marca,
+                                             marca = m.nombre_marca,
+                                             e.id_estados_equipo,
+                                             estados_equipo = es.estados_equipo,
+                                             e.estado
+                                         }).ToList();
 
             if (listadoEquipo.Count == 0)
             {

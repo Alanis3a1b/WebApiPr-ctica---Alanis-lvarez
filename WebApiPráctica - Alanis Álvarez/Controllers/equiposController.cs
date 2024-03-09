@@ -17,7 +17,7 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
             _equiposContexto = equiposContexto;
         }
 
-        ////Método para leer todos los registros
+        //Método para leer todos los registros
         //[HttpGet]
         //[Route("GetAll")]
 
@@ -34,7 +34,7 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
         //    return Ok(listadoEquipo);
         //}
 
-        //Método con los join. Obviamente realizar para cada tabla a utilizar sus parámetros, contexto, inyección de cada tabla y
+        //Método con los JOIN. Obviamente realizar para cada tabla a utilizar sus parámetros, contexto, inyección de cada tabla y
         //controlador (si nos piden crearle métodos a dicha tabla)
         [HttpGet]
         [Route("GetAll")]
@@ -50,15 +50,22 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
                                                   on e.id_estados_equipo equals es.id_estados_equipo
                                          select new
                                          {
+                                             //Aquí definimos los campos a seleccionar, con su respectivo alias que indica
+                                             //la tabla donde corresponden (ejemplo: e.id_equipos, traera todos los id de la tabla equipos)
                                              e.id_equipos,
                                              e.nombre,
                                              e.descripcion,
                                              e.id_tipo_equipo,
                                              tipo_equipo = t.descripcion,
                                              e.id_marca,
+                                             //las variable igualadas son los nombres de campo en como quiere mostrarse
+                                             //(Ejemplo marca = "Samsung")
                                              marca = m.nombre_marca,
                                              e.id_estados_equipo,
                                              estados_equipos = es.id_estados_equipo,
+                                             estado_equipo = es.descripcion,
+                                             //Aquí vamos a hacer un campo compuesto...
+                                             detalle = $"Tipo: { t.descripcion}, Marca { m.nombre_marca}, Estado Equipo { es.descripcion} ",
                                              e.estado
                                          }).ToList();
 

@@ -34,8 +34,8 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
         //    return Ok(listadoEquipo);
         //}
 
-        //Método con los JOIN. Obviamente realizar para cada tabla a utilizar sus parámetros, contexto, inyección de cada tabla y
-        //controlador (si nos piden crearle métodos a dicha tabla)
+        /*Método con los JOIN. Obviamente realizar para cada tabla a utilizar sus parámetros, contexto (Agregar todas las tablas en un solo contexto para JOINS),
+        inyección de cada tabla y controlador (si nos piden crearle métodos a una tabla específica)*/
         [HttpGet]
         [Route("GetAll")]
 

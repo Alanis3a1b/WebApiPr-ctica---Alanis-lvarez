@@ -45,9 +45,9 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
                                            join t in _equiposContexto.tipo_equipo
                                                   on e.id_tipo_equipo equals t.id_tipo_equipo
                                            join m in _equiposContexto.marcas
-                                                  on e.id_marca equals m.id_marca
-                                           join es in _equiposContexto.estados_equipo
-                                                  on e.id_estados_equipo equals es.id_estados_equipo
+                                                  on e.id_marca equals m.id_marcas
+                                           join es in _equiposContexto.estados_equipos
+                                                  on e.id_estados_equipo equals es.id_estados_equipos
                                          select new
                                          {
                                              e.id_equipos,
@@ -58,7 +58,7 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
                                              e.id_marca,
                                              marca = m.nombre_marca,
                                              e.id_estados_equipo,
-                                             estados_equipo = es.estados_equipo,
+                                             estados_equipos = es.id_estados_equipos,
                                              e.estado
                                          }).ToList();
 
@@ -140,8 +140,8 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
 
             equipoActual.nombre = equipoModificar.nombre;
             equipoActual.descripcion = equipoModificar.descripcion;
-            equipoActual.marca_id = equipoModificar.marca_id;
-            equipoModificar.tipo_equipo_id = equipoModificar.tipo_equipo_id;
+            equipoActual.id_marca = equipoModificar.id_marca;
+            equipoModificar.id_tipo_equipo= equipoModificar.id_tipo_equipo;
             equipoModificar.anio_compra = equipoModificar.anio_compra;
             equipoModificar.costo = equipoModificar.costo;
 

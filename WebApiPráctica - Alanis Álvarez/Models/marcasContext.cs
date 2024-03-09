@@ -9,6 +9,6 @@ namespace WebApiPráctica___Alanis_Álvarez.Models
 
         }
 
-        public DbSet<marcas> marcas { get; set; }
+        //public DbSet<marcas> marcas { get; set; }
     }
 }

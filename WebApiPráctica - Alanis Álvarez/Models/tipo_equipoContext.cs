@@ -9,6 +9,6 @@ namespace WebApiPráctica___Alanis_Álvarez.Models
 
         }
 
-        public DbSet<tipo_equipo> tipo_equipo { get; set; }
+        //public DbSet<tipo_equipo> tipo_equipo { get; set; }
     }
 }

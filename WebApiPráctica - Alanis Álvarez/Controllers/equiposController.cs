@@ -46,8 +46,8 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
                                                   on e.id_tipo_equipo equals t.id_tipo_equipo
                                            join m in _equiposContexto.marcas
                                                   on e.id_marca equals m.id_marcas
-                                           join es in _equiposContexto.estados_equipos
-                                                  on e.id_estados_equipo equals es.id_estados_equipos
+                                           join es in _equiposContexto.estados_equipo
+                                                  on e.id_estados_equipo equals es.id_estados_equipo
                                          select new
                                          {
                                              e.id_equipos,
@@ -58,7 +58,7 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
                                              e.id_marca,
                                              marca = m.nombre_marca,
                                              e.id_estados_equipo,
-                                             estados_equipos = es.id_estados_equipos,
+                                             estados_equipos = es.id_estados_equipo,
                                              e.estado
                                          }).ToList();
 

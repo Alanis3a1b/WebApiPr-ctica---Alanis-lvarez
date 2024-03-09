@@ -69,10 +69,22 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
                                              e.estado
                                          }).ToList();
 
+            /*Por defecto, termina en ".ToList();"*/
+
             /*Si se quiere elegir solo un número específico de filas, se utiliza el TOP N,
               por ejemplo, el top 10 de productos más vendidos, etc. 
-              para ello se agrega al final... ".Take(N).ToList();", donde N es el número específico de filas
+              para ello se agrega al final... "}).Take(N).ToList();", donde N es el número específico de filas
              */
+
+            /*Para saltar registros es SKIP N, así: "}).Skip(N).Take(10).ToList();", donde N es el número de registrosa a saltar*/
+
+            /*Por último, para hacer una consulta ordenada por otro campo (en este ejemplo id_estadosS_equipo), se utiliza OrderBy:
+              "}).OrderBy(resultado => resultado.id_estado_equipo).ToList();"
+            
+             Si se quiere que sea utilizar más campos utilizamos el ThenBy o ThenByDescending:
+              "}).OrderBy(resultado => resultado.id_estados_equipo).ThenBy(resultado => resultado.id_marca).ThenByDescending(resultado => resultado.id_tipo_equipo).ToList();"
+              
+            */
 
             if (listadoEquipo.Count == 0)
             {

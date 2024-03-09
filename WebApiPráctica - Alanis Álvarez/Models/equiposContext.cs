@@ -16,7 +16,7 @@ namespace WebApiPráctica___Alanis_Álvarez.Models
 
         public DbSet<tipo_equipo> tipo_equipo { get; set; }
 
-        public DbSet<estados_equipo> estados_equipos { get; set; }
+        public DbSet<estados_equipo> estados_equipo { get; set; }
 
     }
 }

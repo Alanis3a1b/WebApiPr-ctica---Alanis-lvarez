@@ -9,7 +9,14 @@ namespace WebApiPráctica___Alanis_Álvarez.Models
         
         }
 
+        /*Tablas para hacer los joins metidas en un solo contexto*/
         public DbSet<equipos> equipos { get; set; }
-        /*tabla*/
+
+        public DbSet<marcas> marcas { get; set; }
+
+        public DbSet<tipo_equipo> tipo_equipo { get; set; }
+
+        public DbSet<estados_equipo> estados_equipos { get; set; }
+
     }
 }

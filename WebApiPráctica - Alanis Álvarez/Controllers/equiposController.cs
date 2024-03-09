@@ -34,7 +34,7 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
         //    return Ok(listadoEquipo);
         //}
 
-        //Método con los joins (Obviamente realizar sus parámetros, contexto, inyección de cada tabla y
+        //Método con los join. Obviamente realizar para cada tabla a utilizar sus parámetros, contexto, inyección de cada tabla y
         //controlador (si nos piden crearle métodos a dicha tabla)
         [HttpGet]
         [Route("GetAll")]
@@ -45,7 +45,7 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
                                            join t in _equiposContexto.tipo_equipo
                                                   on e.id_tipo_equipo equals t.id_tipo_equipo
                                            join m in _equiposContexto.marcas
-                                                  on e.id_marca equals m.id_marca
+                                                  on e.id_marcas equals m.id_marcas
                                            join es in _equiposContexto.estados_equipo
                                                   on e.id_estados_equipo equals es.id_estados_equipo
                                          select new

@@ -69,6 +69,11 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
                                              e.estado
                                          }).ToList();
 
+            /*Si se quiere elegir solo un número específico de filas, se utiliza el TOP N,
+              por ejemplo, el top 10 de productos más vendidos, etc. 
+              para ello se agrega al final... ".Take(N).ToList();", donde N es el número específico de filas
+             */
+
             if (listadoEquipo.Count == 0)
             {
                 return NotFound();

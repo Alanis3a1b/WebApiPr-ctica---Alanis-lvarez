@@ -17,7 +17,7 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
             _equiposContexto = equiposContexto;
         }
 
-        //Método para leert todos los registros
+        //Método para leer todos los registros
         [HttpGet]
         [Route("GetAll")]
 
@@ -33,6 +33,26 @@ namespace WebApiPráctica___Alanis_Álvarez.Controllers
 
             return Ok(listadoEquipo);
         }
+
+        //Método con los joins (Obviamente realizar sus parámetros, contexto, inyección de cada tabla y
+        //controlador (si nos piden crearle métodos a dicha tabla)
+        [HttpGet]
+        [Route("GetAll")]
+
+        public IActionResult GetJoin()
+        {
+            List<equipos> listadoEquipo = (from e in _equiposContexto.equipos
+                                           
+                                           select e).ToList();
+
+            if (listadoEquipo.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(listadoEquipo);
+        }
+
 
         //Método para buscar por ID
         [HttpGet]

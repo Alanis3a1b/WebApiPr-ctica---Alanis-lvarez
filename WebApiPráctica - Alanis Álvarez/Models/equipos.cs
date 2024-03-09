@@ -21,6 +21,34 @@ namespace WebApiPráctica___Alanis_Álvarez.Models
 
     }
 
+    public class marcas
+    {
+        [Key]
+        public int id_marcas { get; set; }
+        public string nombre_marca { get; set; }
+        public string estados { get; set; }
+
+    }
+
+    public class estados_equipo
+    {
+        [Key]
+        public int id_estados_equipos{ get; set; }
+        public string descripcion { get; set; }
+        public string estados { get; set; }
+
+    }
+
+    public class tipo_equipo
+    {
+        [Key]
+        public int id_tipo_equipo{ get; set; }
+        public string descripcion { get; set; }
+        public string estados { get; set; }
+
+    }
+
+
 
 
 }
